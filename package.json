@@ -1,0 +1,57 @@
+{
+  "name": "gold-calculator",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "electron": "electron .",
+    "dev": "concurrently \"npm start\" \"npm run electron\"",
+    "build-electron": "electron-builder",
+    "prebuild-electron": "npm run build && copy index.js build\\electron.js",
+    "electron-prod": "npm run build && electron . --enable-logging"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^10.0.0",
+    "concurrently": "^9.1.2",
+    "electron": "^36.5.0",
+    "electron-builder": "^26.0.12",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "files": [
+      "build/**/*",
+      "index.js"
+    ],
+    "extraResources": [
+      "preload.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "homepage": "."
+}
